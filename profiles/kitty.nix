@@ -7,5 +7,5 @@
     # kitty
   ];
 
-  xdg.configFile."kitty/kitty.conf" = config.lib.remotefiles.symlink "files" "kitty/.config/kitty/kitty.conf";
+  xdg.configFile."kitty" = config.lib.remotefiles.symlink "files" "kitty/.config/kitty";
 }
