@@ -20,7 +20,7 @@
       url = "github:nix-community/NUR";
     };
     neovim = {
-      url = "github:neovim/neovim/2fce95ec439a1121271798cf00fc8ec9878813fa/?dir=contrib";
+      url = "github:neovim/neovim/2fce95ec439a1121271798cf00fc8ec9878813fa?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixd = {
@@ -76,7 +76,21 @@
         ];
       };
 
-      modules = [./home.nix];
+      modules = [
+        ({profiles, ...}: {
+          imports = with profiles; [
+            (user {inherit username;})
+
+            (remotefiles "files" {
+              type = "git";
+              url = "https://github.com/MurdeRM3L0DY/dotfiles";
+              path = ".config/home-manager/files";
+            })
+          ];
+        })
+
+        ./home.nix
+      ];
 
       extraInputs = {
         inherit inputs;
