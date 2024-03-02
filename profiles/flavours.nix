@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, lib', ...}: {
   config,
   pkgs,
   ...
@@ -8,5 +8,5 @@
   ];
 
   # flavours
-  xdg.configFile."flavours" = config.lib.remotefiles.symlink "files" "flavours/.config/flavours";
+  xdg.configFile."flavours" = lib'.dotfileslink config "flavours/.config/flavours";
 }

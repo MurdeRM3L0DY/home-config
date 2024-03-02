@@ -2,6 +2,7 @@
   inputs,
   profiles,
   modules,
+  lib',
   ...
 }: {
   config,
@@ -11,7 +12,7 @@
   userProfiles = inputs.mnix.lib.importDefault {
     src = ./profiles;
     inputs = {
-      inherit inputs profiles modules;
+      inherit inputs profiles modules lib';
     };
   };
 in {
@@ -62,15 +63,18 @@ in {
 
   home.packages = with pkgs; [
     # bottles
-    # bitwig-studio
+    # android-studio
+    bitwig-studio
     # deadbeef-with-plugins
     # hyprland
     # jamesdsp
     libreoffice
     mate.atril
-    mullvad-browser
+    # mullvad-browser
     nixgl.nixGLMesa
     qbittorrent
+    yabridge
+    yabridgectl
     # tribler
   ];
 
@@ -78,4 +82,6 @@ in {
     config = ["/etc/xdg"];
     data = ["/var/lib/flatpak/exports/share" "${config.xdg.dataHome}/flatpak/exports/share"];
   };
+
+  xdg.configFile."mpv" = lib'.dotfileslink config "mpv/.config/mpv";
 }

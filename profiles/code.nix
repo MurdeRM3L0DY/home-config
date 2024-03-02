@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib',
+  ...
+}: {
   config,
   pkgs,
   ...
@@ -33,6 +37,6 @@ in {
   #   clang-tools
   # ];
 
-  xdg.configFile."VSCodium" = config.lib.remotefiles.symlink "files" "code/.config/VSCodium";
-  xdg.configFile."Visual Studio Code" = config.lib.remotefiles.symlink "files" "code/.config/Visual Studio Code";
+  xdg.configFile."VSCodium" = lib'.dotfileslink config "code/.config/VSCodium";
+  xdg.configFile."Visual Studio Code" = lib'.dotfileslink config "code/.config/Visual Studio Code";
 }

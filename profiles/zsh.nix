@@ -1,4 +1,4 @@
-{profiles, ...}: {
+{profiles, lib', ...}: {
   config,
   pkgs,
   ...
@@ -20,12 +20,12 @@
     zip
   ];
 
-  home.file.".zshenv" = config.lib.remotefiles.symlink "files" "zsh/.zshenv";
-  home.file.".zprofile" = config.lib.remotefiles.symlink "files" "zsh/.zprofile";
-  home.file.".zshrc" = config.lib.remotefiles.symlink "files" "zsh/.zshrc";
-  home.file.".zsh" = config.lib.remotefiles.symlink "files" "zsh/.zsh";
+  home.file.".zshenv" = lib'.dotfileslink config "zsh/.zshenv";
+  home.file.".zprofile" = lib'.dotfileslink config "zsh/.zprofile";
+  home.file.".zshrc" = lib'.dotfileslink config "zsh/.zshrc";
+  home.file.".zsh" = lib'.dotfileslink config "zsh/.zsh";
 
-  xdg.configFile."zellij/config.kdl" = config.lib.remotefiles.symlink "files" "zellij/.config/zellij/config.kdl";
+  xdg.configFile."zellij/config.kdl" = lib'.dotfileslink config "zellij/.config/zellij/config.kdl";
   programs.zellij = {
     enable = true;
   };
@@ -40,6 +40,10 @@
 
   programs.mise = {
     enable = true;
+
+    settings = {
+      experimental = true;
+    };
   };
 
   programs.eza = {

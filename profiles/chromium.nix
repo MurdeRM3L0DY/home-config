@@ -23,6 +23,17 @@
       };
       createChromiumExtension = createChromiumExtensionFor (lib.versions.major config.programs.chromium.package.version);
     in [
+      # chromium web store
+      rec {
+        id = "ocaahdebbfolfmndjeplogmgcagdmblk";
+        crxPath = builtins.fetchurl {
+          name = "${id}.crx";
+          url = "https://github.com/NeverDecaf/chromium-web-store/releases/download/${version}/Chromium.Web.Store.crx";
+          sha256 = "sha256:0q3js6r6wzy0hqdjgm9n8kmwb8hn6prap7gp3vx0z3xgipgpp92c";
+        };
+        version = "v1.5.4.2";
+      }
+
       # darkreader
       (createChromiumExtension {
         id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
@@ -65,17 +76,12 @@
         sha256 = "sha256:19nccm7i7ad4p48gjckl4ir8pawprfz1s6383h3j8mn645mnn1ql";
       })
 
-      # # chromium web store
-      #  {
-      #   id = "chromiumwebstoreabcdefghijklmnop";
-      #   crxPath = builtins.fetchurl {
-      #     name = "Chromium.Web.Store.crx";
-      #     url = "https://github.com/NeverDecaf/chromium-web-store/releases/download/v1.5.4.1/Chromium.Web.Store.crx";
-      #     sha256 = "sha256:0mgqc3j0198zc3fd56hsaf7idffy8cr24v57zi8ygs24qgixydii";
-      #   };
-      #   version = "v1.5.4.1";
-      # }
+      # TTV LOL PRO
+      (createChromiumExtension {
+        id = "bpaoeijjlplfjbagceilcgbkcdjbomjd";
+        version = "2.3.4";
+        sha256 = "sha256:05z1lfc99xlqfx7p1hpd5a88b34y5xb9crxmq7vxdm70fglyix05";
+      })
     ];
   };
 }
-

@@ -2,6 +2,7 @@
   inputs,
   super,
   profiles,
+  lib',
   ...
 }: {
   config,
@@ -15,6 +16,6 @@
   home.packages = with pkgs; [
   ];
 
-  xdg.configFile."hypr" = config.lib.remotefiles.symlink "files" "hypr/.config/hypr";
-  xdg.configFile."ags" = config.lib.remotefiles.symlink "files" "ags/.config/ags";
+  xdg.configFile."hypr" = lib'.dotfileslink config "hypr/.config/hypr";
+  xdg.configFile."ags" = lib'.dotfileslink config "ags/.config/ags";
 }

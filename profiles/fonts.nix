@@ -1,6 +1,7 @@
 {
   inputs,
   profiles,
+  lib',
   ...
 }: {
   config,
@@ -11,5 +12,5 @@
     enable = true;
   };
 
-  xdg.dataFile."fonts" = config.lib.remotefiles.symlink "files" "fonts/.local/share/fonts";
+  xdg.dataFile."fonts" = lib'.dotfileslink config "fonts/.local/share/fonts";
 }

@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib',
+  ...
+}: {
   config,
   pkgs,
   ...
@@ -61,5 +65,5 @@ in {
       ];
   };
 
-  xdg.configFile."nvim" = config.lib.remotefiles.symlink "files" "nvim/.config/nvim";
+  xdg.configFile."nvim" = lib'.dotfileslink config "nvim/.config/nvim";
 }

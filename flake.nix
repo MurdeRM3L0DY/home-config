@@ -20,7 +20,7 @@
       url = "github:nix-community/NUR";
     };
     neovim = {
-      url = "github:neovim/neovim/2fce95ec439a1121271798cf00fc8ec9878813fa?dir=contrib";
+      url = "github:neovim/neovim/?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixd = {
@@ -63,6 +63,7 @@
   }: let
     username = "nemesis";
     system = flake-utils.lib.system.x86_64-linux;
+    lib' = import ./lib.nix;
   in {
     homeConfigurations."${username}" = mnix.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
@@ -80,12 +81,6 @@
         ({profiles, ...}: {
           imports = with profiles; [
             (user {inherit username;})
-
-            (remotefiles "files" {
-              type = "git";
-              url = "https://github.com/MurdeRM3L0DY/dotfiles";
-              path = ".config/home-manager/files";
-            })
           ];
         })
 
@@ -93,7 +88,7 @@
       ];
 
       extraInputs = {
-        inherit inputs;
+        inherit inputs lib';
       };
     };
   };

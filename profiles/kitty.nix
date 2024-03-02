@@ -1,4 +1,4 @@
-{...}: {
+{lib', ...}: {
   config,
   pkgs,
   ...
@@ -7,5 +7,5 @@
     # kitty
   ];
 
-  xdg.configFile."kitty" = config.lib.remotefiles.symlink "files" "kitty/.config/kitty";
+  xdg.configFile."kitty" = lib'.dotfileslink config "kitty/.config/kitty";
 }

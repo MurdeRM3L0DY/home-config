@@ -14,9 +14,6 @@
         ublock-origin
         darkreader
       ];
-      search = {
-        default = "DuckDuckGo";
-      };
       settings = {
         # https://github.com/arkenfox/user.js
         # Enable ETP for decent security (makes firefox containers and many
