@@ -1,6 +1,6 @@
 {
   inputs,
-  lib',
+  utils,
   ...
 }: {
   config,
@@ -65,5 +65,5 @@ in {
       ];
   };
 
-  xdg.configFile."nvim" = lib'.dotfileslink config "nvim/.config/nvim";
+  xdg.configFile."nvim" = utils.dotfileslink config "nvim/.config/nvim";
 }

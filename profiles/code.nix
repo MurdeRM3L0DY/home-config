@@ -1,6 +1,6 @@
 {
   inputs,
-  lib',
+  utils,
   ...
 }: {
   config,
@@ -37,6 +37,6 @@ in {
   #   clang-tools
   # ];
 
-  xdg.configFile."VSCodium" = lib'.dotfileslink config "code/.config/VSCodium";
-  xdg.configFile."Visual Studio Code" = lib'.dotfileslink config "code/.config/Visual Studio Code";
+  xdg.configFile."VSCodium" = utils.dotfileslink config "code/.config/VSCodium";
+  xdg.configFile."Visual Studio Code" = utils.dotfileslink config "code/.config/Visual Studio Code";
 }

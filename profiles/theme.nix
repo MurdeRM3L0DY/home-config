@@ -64,13 +64,13 @@
   ];
 
   # # gtk2
-  # home.file.".gtkrc-2.0" = lib'.dotfileslink config "gtk/.gtkrc-2.0";
+  # home.file.".gtkrc-2.0" = utils.dotfileslink config "gtk/.gtkrc-2.0";
   #
   # # gtk3
-  # xdg.configFile."gtk-3.0/settings.ini" = lib'.dotfileslink config "gtk/.config/gtk-3.0/settings.ini";
-  # xdg.configFile."gtk-3.0/gtk.css" = lib'.dotfileslink config "gtk/.config/gtk-3.0/gtk.css";
+  # xdg.configFile."gtk-3.0/settings.ini" = utils.dotfileslink config "gtk/.config/gtk-3.0/settings.ini";
+  # xdg.configFile."gtk-3.0/gtk.css" = utils.dotfileslink config "gtk/.config/gtk-3.0/gtk.css";
   #
   # # gtk4
-  # xdg.configFile."gtk-4.0/settings.ini" = lib'.dotfileslink config "gtk/.config/gtk-4.0/settings.ini";
-  # xdg.configFile."gtk-4.0/gtk.css" = lib'.dotfileslink config "gtk/.config/gtk-4.0/gtk.css";
+  # xdg.configFile."gtk-4.0/settings.ini" = utils.dotfileslink config "gtk/.config/gtk-4.0/settings.ini";
+  # xdg.configFile."gtk-4.0/gtk.css" = utils.dotfileslink config "gtk/.config/gtk-4.0/gtk.css";
 }

@@ -1,4 +1,4 @@
-{profiles, lib', ...}: {
+{profiles, utils, ...}: {
   config,
   pkgs,
   ...
@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     bear
     fd
+    fswatch
     htop
     nix-index
     p7zip
@@ -20,12 +21,12 @@
     zip
   ];
 
-  home.file.".zshenv" = lib'.dotfileslink config "zsh/.zshenv";
-  home.file.".zprofile" = lib'.dotfileslink config "zsh/.zprofile";
-  home.file.".zshrc" = lib'.dotfileslink config "zsh/.zshrc";
-  home.file.".zsh" = lib'.dotfileslink config "zsh/.zsh";
+  home.file.".zshenv" = utils.dotfileslink config "zsh/.zshenv";
+  home.file.".zprofile" = utils.dotfileslink config "zsh/.zprofile";
+  home.file.".zshrc" = utils.dotfileslink config "zsh/.zshrc";
+  home.file.".zsh" = utils.dotfileslink config "zsh/.zsh";
 
-  xdg.configFile."zellij/config.kdl" = lib'.dotfileslink config "zellij/.config/zellij/config.kdl";
+  xdg.configFile."zellij/config.kdl" = utils.dotfileslink config "zellij/.config/zellij/config.kdl";
   programs.zellij = {
     enable = true;
   };

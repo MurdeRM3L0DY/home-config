@@ -1,8 +1,8 @@
-{
+extraInputs @ {
   inputs,
   profiles,
   modules,
-  lib',
+  utils,
   ...
 }: {
   config,
@@ -11,9 +11,7 @@
 }: let
   userProfiles = inputs.mnix.lib.importDefault {
     src = ./profiles;
-    inputs = {
-      inherit inputs profiles modules lib';
-    };
+    inputs = extraInputs;
   };
 in {
   imports = with userProfiles; [
@@ -83,5 +81,5 @@ in {
     data = ["/var/lib/flatpak/exports/share" "${config.xdg.dataHome}/flatpak/exports/share"];
   };
 
-  xdg.configFile."mpv" = lib'.dotfileslink config "mpv/.config/mpv";
+  xdg.configFile."mpv" = utils.dotfileslink config "mpv/.config/mpv";
 }

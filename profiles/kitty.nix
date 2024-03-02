@@ -1,4 +1,4 @@
-{lib', ...}: {
+{utils, ...}: {
   config,
   pkgs,
   ...
@@ -7,5 +7,5 @@
     # kitty
   ];
 
-  xdg.configFile."kitty" = lib'.dotfileslink config "kitty/.config/kitty";
+  xdg.configFile."kitty" = utils.dotfileslink config "kitty/.config/kitty";
 }

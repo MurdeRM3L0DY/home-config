@@ -2,7 +2,7 @@
   inputs,
   super,
   profiles,
-  lib',
+  utils,
   ...
 }: {
   config,
@@ -38,7 +38,7 @@
     # scriptPath = "${config.home.homeDirectory}/.xinitrc";
   };
 
-  home.file.".xserverrc" = lib'.dotfileslink config "xorg/.xserverrc";
+  home.file.".xserverrc" = utils.dotfileslink config "xorg/.xserverrc";
   home.file.".xinitrc" = {
     executable = true;
     text =
@@ -58,7 +58,7 @@
         exec ${config.xsession.windowManager.command}
       '';
   };
-  xdg.configFile."awesome" = lib'.dotfileslink config "awesome/.config/awesome";
+  xdg.configFile."awesome" = utils.dotfileslink config "awesome/.config/awesome";
 
   services.gnome-keyring = {
     enable = true;

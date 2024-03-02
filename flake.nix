@@ -63,7 +63,7 @@
   }: let
     username = "nemesis";
     system = flake-utils.lib.system.x86_64-linux;
-    lib' = import ./lib.nix;
+    utils = import ./utils.nix;
   in {
     homeConfigurations."${username}" = mnix.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
@@ -88,7 +88,7 @@
       ];
 
       extraInputs = {
-        inherit inputs lib';
+        inherit inputs utils;
       };
     };
   };

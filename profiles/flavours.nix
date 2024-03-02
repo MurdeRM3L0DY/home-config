@@ -1,4 +1,4 @@
-{inputs, lib', ...}: {
+{inputs, utils, ...}: {
   config,
   pkgs,
   ...
@@ -8,5 +8,5 @@
   ];
 
   # flavours
-  xdg.configFile."flavours" = lib'.dotfileslink config "flavours/.config/flavours";
+  xdg.configFile."flavours" = utils.dotfileslink config "flavours/.config/flavours";
 }
