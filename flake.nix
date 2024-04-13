@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mnix = {
-      url = "path:/home/nemesis/src/mnix";
+      url = "github:MurdeRM3L0DY/mnix";
     };
 
     flake-utils = {

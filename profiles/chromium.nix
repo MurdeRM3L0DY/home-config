@@ -55,6 +55,11 @@
       #   sha256 = "sha256:1rrn78dqvnj096cllcw6bdwxlilinmlw57nhs25yhqwf46zvgq3n";
       # })
 
+      # {
+      #   id = "bgnkhhnnamicmpeenaelnjfhikgbkllg";
+      #   version = "4.3.31";
+      # }
+
       # bitwarden
       (createChromiumExtension {
         id = "nngceckbapebfimnlniiiahkandclblb";
@@ -81,6 +86,13 @@
         id = "bpaoeijjlplfjbagceilcgbkcdjbomjd";
         version = "2.3.4";
         sha256 = "sha256:05z1lfc99xlqfx7p1hpd5a88b34y5xb9crxmq7vxdm70fglyix05";
+      })
+
+      # MetaMask
+      (createChromiumExtension {
+        id = "nkbihfbeogaeaoehlefnkodbefgpgknn";
+        version = "11.11.0";
+        sha256 = "sha256:1cakdai7bh65xz5dkd56b6q4p37j79270sr3ip056a3c9dk59dnl";
       })
     ];
   };

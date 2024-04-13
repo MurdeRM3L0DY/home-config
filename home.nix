@@ -66,11 +66,15 @@ in {
     # deadbeef-with-plugins
     # hyprland
     # jamesdsp
+    jetbrains.idea-community
     libreoffice
     mate.atril
     # mullvad-browser
     nixgl.nixGLMesa
     qbittorrent
+    quarto
+    remmina
+    wireshark
     yabridge
     yabridgectl
     # tribler
@@ -82,4 +86,5 @@ in {
   };
 
   xdg.configFile."mpv" = utils.dotfileslink config "mpv/.config/mpv";
+  xdg.configFile."wezterm" = utils.dotfileslink config "wezterm/.config/wezterm";
 }

@@ -12,6 +12,7 @@
     fd
     fswatch
     htop
+    luarocks
     nix-index
     p7zip
     testdisk
@@ -19,6 +20,7 @@
     unzip
     vpnc
     zip
+    zoxide
   ];
 
   home.file.".zshenv" = utils.dotfileslink config "zsh/.zshenv";
@@ -44,6 +46,7 @@
 
     settings = {
       experimental = true;
+      python_venv_auto_create = true;
     };
   };
 

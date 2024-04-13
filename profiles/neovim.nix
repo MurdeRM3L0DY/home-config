@@ -26,6 +26,7 @@ in {
       alejandra
       clang-tools
       # inputs.nixd.packages.${system}.nixd
+      go
       jdt-language-server
       ltex-ls
       nodePackages."@tailwindcss/language-server"
@@ -50,6 +51,7 @@ in {
         '';
       }))
       # typescript
+      imagemagick
     ];
     extraLuaPackages = ps:
       with ps; [
@@ -60,8 +62,11 @@ in {
       with ps; [
         pynvim
         jupyter-client
-        cairosvg
-        plotly
+        nbformat
+        cairosvg # for image rendering
+        pnglatex # for image rendering
+        plotly # for image rendering
+        pyperclip
       ];
   };
 

@@ -50,6 +50,7 @@
   home.sessionVariables = {
     GTK_THEME = config.gtk.theme.name;
     ICON_THEME = config.gtk.iconTheme.name;
+    XCURSOR_THEME = config.gtk.iconTheme.name;
     # GTK_USE_PORTAL = 1;
   };
 
